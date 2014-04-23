@@ -1,24 +1,30 @@
-require 'sinatra' 
-require 'slim' 
+require 'sinatra'
+# require 'sinatra/reloader' if development?
+require 'slim'
+require 'sass/plugin/rack'
+use Sass::Plugin::Rack
 
-get '/' do 
-	slim :home
-end 
 
-get '/about' do 
-	@title = "All About This Website"
-	slim :about 
-end 
+
+get('/styles.css'){scss :styles}
+
+get '/' do
+  slim :home
+end
+
+get '/about' do
+  @title = "All about this website"
+  slim :about
+end
 
 get '/contact' do
-	@title = "Contact Us" 
-	slim :contact
-end 
+  @title = "Contact us"
+  slim :contact
+end
 
-not_found do 
-	slim :not_found
-end 
-
+not_found do
+  slim :not_found
+end
 
 
 
