@@ -1,0 +1,12 @@
+h1= @dog.name
+ul 
+	li Age: #{@dog.age} years old
+	li Gender: #{@dog.gender}
+	li Breed: #{@dog.breed}
+	li Description: #{@dog.description}
+
+p <a href="/dogs">Back to Dogs index</a>
+p <a href="/dogs/#{@dog.id}/edit">Edit this Dog</a>
+form action="/dogs/#{@dog.id}" method="POST" 		    
+	input type="hidden" name="_method" value="DELETE"
+	input type ="submit" value="delete this song"

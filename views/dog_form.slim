@@ -1,0 +1,11 @@
+label for="name" Name:
+input#name type="text" name="dog[name]" value="#{@dog.name}"
+label for="age" Age:
+input#age type="number" name="dog[age]" value="#{@dog.age}"
+label for="gender" Gender:
+input#gender type="text" name="dog[gender]" value="#{@dog.gender}"
+label for="breed" Breed:
+input#breed type="text" name="dog[breed]" value="#{@dog.breed}" 
+label for="description" Description:
+textarea#description name="dog[description]" == @dog.description
+input type="submit" value="Save Dog"

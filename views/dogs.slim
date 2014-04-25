@@ -1,0 +1,10 @@
+h1 Dogs
+a href="/dogs/new" Create a new dog
+- if @dogs.any?
+	ul#dogs
+		-@dogs.each do |dog|
+			li <a href="/dogs/#{dog.id}">#{dog.name}</a>
+- else
+  p No dogs available for adoption at this time.
+
+  

@@ -15,3 +15,38 @@ class Dog
 end 
 
 DataMapper.finalize
+
+get '/dogs' do 
+	@dogs = Dog.all
+	slim :dogs
+end
+
+get '/dogs/new' do 
+	@dog = Dog.new
+	slim :new_dog
+end 
+
+post '/dogs' do 
+	dog = Dog.create(params[:dog])
+	redirect to("/dogs/#{dog.id}")
+end 
+
+get '/dogs/:id' do 
+	@dog = Dog.get(params[:id])
+	slim :show_dog
+end 
+
+get '/dogs/:id/edit' do
+	@dog = Dog.get(params[:id])
+	slim :edit_dog
+end 
+
+put 'dogss/:id' do 
+	dog = Dog.get(params[:id])
+	Dog.update(params[:dog])
+	redirect to("/dogs/#{dog.id}")
+end 
+
+
+
+

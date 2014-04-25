@@ -4,7 +4,7 @@ require 'slim'
 require 'sass/plugin/rack'
 use Sass::Plugin::Rack
 
-
+require './dog'
 
 get('/styles.css'){scss :styles}
 
