@@ -41,12 +41,15 @@ get '/dogs/:id/edit' do
 	slim :edit_dog
 end 
 
-put 'dogss/:id' do 
-	dog = Dog.get(params[:id])
-	Dog.update(params[:dog])
-	redirect to("/dogs/#{dog.id}")
+put '/dogs/:id' do 
+	@dog = Dog.get(params[:id])
+	@dog.update(params[:dog])
+	redirect to("/dogs/#{@dog.id}")
 end 
 
-
+delete '/dogs/:id' do 
+	Dog.get(params[:id]).destroy
+	redirect to('/dogs')
+end 
 
 
